@@ -28,10 +28,7 @@
     }
     body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
 
-    /* LOGIN */
-    #login-screen {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem;
-    }
+    #login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
     .login-box {
       background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg);
       padding: 2.5rem 2rem; max-width: 360px; width: 100%; text-align: center;
@@ -46,29 +43,19 @@
       font-family: var(--font); cursor: pointer; transition: background 0.15s;
     }
     .google-btn:hover { background: var(--accent-bg); }
+    .google-btn:disabled { opacity: 0.6; cursor: default; }
     .google-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .login-error { margin-top: 1rem; font-size: 12px; color: #c0392b; display: none; }
+    .login-error { margin-top: 1rem; font-size: 12px; color: #c0392b; display: none; padding: 8px 12px; background: #fdf0ef; border-radius: var(--radius-md); }
+    .login-status { margin-top: 1rem; font-size: 12px; color: var(--text-faint); display: none; }
 
-
-
-
-
-    /* APP */
     #app-screen { display: none; }
     .app { max-width: 700px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
     .header { text-align: center; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 0.5px solid var(--border); }
     .header h1 { font-family: var(--font-serif); font-size: 32px; font-weight: 400; }
     .header p { font-size: 13px; color: var(--text-faint); margin-top: 5px; }
     .header-meta { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-    .date-chip, .user-chip {
-      display: inline-block; font-size: 12px; color: var(--text-muted);
-      background: var(--surface2); padding: 4px 12px; border-radius: 99px;
-      border: 0.5px solid var(--border);
-    }
-    .logout-btn {
-      font-size: 12px; color: var(--text-faint); background: none; border: none;
-      cursor: pointer; padding: 4px 8px; font-family: var(--font);
-    }
+    .date-chip, .user-chip { display: inline-block; font-size: 12px; color: var(--text-muted); background: var(--surface2); padding: 4px 12px; border-radius: 99px; border: 0.5px solid var(--border); }
+    .logout-btn { font-size: 12px; color: var(--text-faint); background: none; border: none; cursor: pointer; padding: 4px 8px; font-family: var(--font); }
     .logout-btn:hover { color: var(--text-muted); }
 
     .nav { display: flex; gap: 4px; background: var(--surface2); border-radius: var(--radius-lg); padding: 4px; margin-bottom: 2rem; border: 0.5px solid var(--border); }
@@ -85,33 +72,18 @@
     @media (max-width: 480px) { .mood-grid { grid-template-columns: 1fr; } }
 
     .partner-label { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 12px; }
-    .you-badge {
-      display: inline-block; font-size: 10px; color: var(--accent); background: var(--accent-bg);
-      border: 0.5px solid var(--accent); border-radius: 99px; padding: 1px 8px; margin-left: 6px; font-weight: 400;
-    }
+    .you-badge { display: inline-block; font-size: 10px; color: var(--accent); background: var(--accent-bg); border: 0.5px solid var(--accent); border-radius: 99px; padding: 1px 8px; margin-left: 6px; font-weight: 400; }
     .mood-emojis { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
-    .mood-emojis button {
-      width: 36px; height: 36px; border: 0.5px solid var(--border); border-radius: 8px;
-      background: var(--surface2); font-size: 17px; cursor: pointer; transition: all 0.15s;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .mood-emojis button { width: 36px; height: 36px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--surface2); font-size: 17px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
     .mood-emojis button:hover { border-color: var(--accent); }
     .mood-emojis button.selected { border: 1.5px solid var(--accent); background: var(--accent-bg); }
     .mood-emojis button:disabled { opacity: 0.4; cursor: default; }
 
-    .text-input {
-      width: 100%; font-size: 13px; font-family: var(--font); color: var(--text);
-      background: var(--surface2); border: 0.5px solid var(--border);
-      border-radius: var(--radius-md); padding: 8px 11px; outline: none; transition: border-color 0.15s;
-    }
+    .text-input { width: 100%; font-size: 13px; font-family: var(--font); color: var(--text); background: var(--surface2); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 8px 11px; outline: none; transition: border-color 0.15s; }
     .text-input:focus { border-color: var(--accent); }
     textarea.text-input { min-height: 80px; resize: vertical; line-height: 1.6; font-size: 14px; }
 
-    .save-btn {
-      width: 100%; padding: 11px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md);
-      background: transparent; color: var(--text); font-size: 14px; font-family: var(--font);
-      cursor: pointer; transition: background 0.15s; margin-top: 4px;
-    }
+    .save-btn { width: 100%; padding: 11px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md); background: transparent; color: var(--text); font-size: 14px; font-family: var(--font); cursor: pointer; transition: background 0.15s; margin-top: 4px; }
     .save-btn:hover { background: var(--surface2); }
     .save-btn:disabled { opacity: 0.5; cursor: default; }
 
@@ -127,61 +99,38 @@
     .past-entry .e-text { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
     .past-entry .e-improve { font-size: 12px; color: var(--text-faint); margin-top: 4px; font-style: italic; }
 
-    .milestone-item {
-      display: flex; align-items: flex-start; gap: 12px; background: var(--surface);
-      border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 12px 14px;
-      margin-bottom: 10px; cursor: pointer; transition: border-color 0.15s;
-    }
+    .milestone-item { display: flex; align-items: flex-start; gap: 12px; background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 12px 14px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.15s; }
     .milestone-item:hover { border-color: var(--border-strong); }
     .milestone-item.done { opacity: 0.6; }
-    .m-check {
-      width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border-strong);
-      flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center;
-      font-size: 11px; color: var(--success); transition: all 0.15s;
-    }
+    .m-check { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border-strong); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--success); transition: all 0.15s; }
     .milestone-item.done .m-check { background: var(--success-bg); border-color: var(--success); }
     .m-text { font-size: 14px; color: var(--text); }
     .milestone-item.done .m-text { text-decoration: line-through; color: var(--text-muted); }
     .add-row { display: flex; gap: 8px; margin-top: 6px; }
     .add-row input { flex: 1; }
-    .add-row button {
-      padding: 9px 18px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md);
-      background: transparent; color: var(--text); font-size: 13px; font-family: var(--font);
-      cursor: pointer; white-space: nowrap; transition: background 0.15s;
-    }
+    .add-row button { padding: 9px 18px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md); background: transparent; color: var(--text); font-size: 13px; font-family: var(--font); cursor: pointer; white-space: nowrap; transition: background 0.15s; }
     .add-row button:hover { background: var(--surface2); }
 
     .note-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 14px 16px; margin-bottom: 10px; }
     .note-from { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
     .note-body { font-family: var(--font-serif); font-size: 15px; color: var(--text); line-height: 1.75; }
     .note-time { font-size: 11px; color: var(--text-faint); margin-top: 9px; }
-    .send-btn {
-      padding: 10px 20px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md);
-      background: transparent; color: var(--text); font-size: 13px; font-family: var(--font);
-      cursor: pointer; transition: background 0.15s; margin-top: 10px; float: right;
-    }
+    .send-btn { padding: 10px 20px; border: 0.5px solid var(--border-strong); border-radius: var(--radius-md); background: transparent; color: var(--text); font-size: 13px; font-family: var(--font); cursor: pointer; transition: background 0.15s; margin-top: 10px; float: right; }
     .send-btn:hover { background: var(--surface2); }
     .send-btn:disabled { opacity: 0.5; cursor: default; }
 
     .empty-state { text-align: center; padding: 2.5rem 1rem; font-size: 13px; color: var(--text-faint); }
-    .toast {
-      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      background: var(--text); color: var(--bg); padding: 10px 20px;
-      border-radius: 99px; font-size: 13px; opacity: 0; transition: opacity 0.3s;
-      pointer-events: none; white-space: nowrap; z-index: 999;
-    }
+    .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 20px; border-radius: 99px; font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; z-index: 999; }
     .toast.show { opacity: 1; }
-    .loading { text-align: center; padding: 3rem; font-size: 13px; color: var(--text-faint); }
   </style>
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
 <div id="login-screen">
   <div class="login-box">
     <h1>our little world</h1>
     <p>a quiet space for Ambika & Anuja</p>
-    <button class="google-btn" onclick="signInWithGoogle()">
+    <button class="google-btn" id="google-btn" onclick="signInWithGoogle()">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -190,11 +139,11 @@
       </svg>
       Continue with Google
     </button>
+    <div class="login-status" id="login-status">Redirecting to Google...</div>
     <div class="login-error" id="login-error">Only Ambika & Anuja can access this space.</div>
   </div>
 </div>
 
-<!-- APP SCREEN -->
 <div id="app-screen">
   <div class="app">
     <div class="header">
@@ -214,10 +163,9 @@
       <button class="nav-btn" onclick="showTab('notes', this)">Love notes</button>
     </nav>
 
-    <!-- MOOD -->
     <div id="mood" class="section active">
       <div class="mood-grid">
-        <div class="card" id="mood-card-ambika">
+        <div class="card">
           <div class="partner-label">Ambika <span class="you-badge" id="ambika-you" style="display:none">you</span></div>
           <div class="mood-emojis" id="moods-ambika">
             <button onclick="selectMood('ambika','😊')">😊</button>
@@ -229,7 +177,7 @@
           </div>
           <input class="text-input" id="note-ambika" type="text" placeholder="One word about today..." />
         </div>
-        <div class="card" id="mood-card-anuja">
+        <div class="card">
           <div class="partner-label">Anuja <span class="you-badge" id="anuja-you" style="display:none">you</span></div>
           <div class="mood-emojis" id="moods-anuja">
             <button onclick="selectMood('anuja','😊')">😊</button>
@@ -246,7 +194,6 @@
       <div class="history-section" id="mood-history"></div>
     </div>
 
-    <!-- JOURNAL -->
     <div id="journal" class="section">
       <div class="card">
         <div class="card-label">What's on your mind lately?</div>
@@ -260,7 +207,6 @@
       <div class="history-section" id="journal-past"></div>
     </div>
 
-    <!-- MILESTONES -->
     <div id="milestones" class="section">
       <div id="milestones-list"></div>
       <div class="add-row">
@@ -269,7 +215,6 @@
       </div>
     </div>
 
-    <!-- LOVE NOTES -->
     <div id="notes" class="section">
       <div class="card">
         <div class="card-label" id="note-to-label">To: —</div>
@@ -286,85 +231,72 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // =============================================
-  // CONFIGURATION — fill these in after Supabase setup
-  // =============================================
   const SUPABASE_URL = 'https://dioxbtmvkonwgovpqdqx.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpb3hidG12a29ud2dvdnBxZHF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2Nzg2MzcsImV4cCI6MjA5MDI1NDYzN30.7ZlAtTqpKvXWUNlTRwN4bcAB9V87eTfHaB-vNMXZKr0';
 
   const ALLOWED_EMAILS = ['ambikabanerjee17@gmail.com', 'anuja4220@gmail.com'];
-  const NAMES = {
-    'ambikabanerjee17@gmail.com': 'Ambika',
-    'anuja4220@gmail.com': 'Anuja'
-  };
-  const PARTNER_EMAIL = {
-    'ambikabanerjee17@gmail.com': 'anuja4220@gmail.com',
-    'anuja4220@gmail.com': 'ambikabanerjee17@gmail.com'
-  };
+  const NAMES = { 'ambikabanerjee17@gmail.com': 'Ambika', 'anuja4220@gmail.com': 'Anuja' };
+  const PARTNER_EMAIL = { 'ambikabanerjee17@gmail.com': 'anuja4220@gmail.com', 'anuja4220@gmail.com': 'ambikabanerjee17@gmail.com' };
 
-  // =============================================
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { detectSessionInUrl: true, persistSession: true, autoRefreshToken: true }
+  });
 
-  
-(async () => {
-  const { data: { session } } = await supabase.auth.getSession();
-
-  console.log("SESSION ON LOAD:", session); // keep this for debugging
-
-  if (session?.user) {
-    const email = session.user.email;
-
-    if (!ALLOWED_EMAILS.includes(email)) {
-      document.getElementById('login-error').style.display = 'block';
-      await supabase.auth.signOut();
-      return;
-    }
-
-    currentUser = session.user;
-    currentName = NAMES[email];
-    initApp();
-  }
-})();
   let currentUser = null;
   let currentName = '';
   let selectedMood = { ambika: null, anuja: null };
 
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  function fmt(ts) {
-    const d = new Date(ts);
-    return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()];
-  }
+  function fmt(ts) { const d = new Date(ts); return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()]; }
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2800); }
 
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
-  }
+  // ── AUTH ──────────────────────────────────────────
+  async function signInWithGoogle() {
+    const btn = document.getElementById('google-btn');
+    const status = document.getElementById('login-status');
+    btn.disabled = true;
+    status.style.display = 'block';
 
-  // AUTH
- async function signInWithGoogle() {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: window.location.href, // IMPORTANT
-      skipBrowserRedirect: false
+    // Use the EXACT URL of the page as the redirect — no trailing slash issues
+    const redirectTo = window.location.origin + window.location.pathname;
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo }
+    });
+
+    if (error) {
+      btn.disabled = false;
+      status.style.display = 'none';
+      showToast('Error: ' + error.message);
     }
-  });
-
-  if (error) {
-    console.error("Login error:", error);
-    showToast('Login failed. Check console.');
+    // If no error, browser will redirect to Google — nothing more to do here
   }
-}
 
   async function signOut() {
     await supabase.auth.signOut();
-    location.reload();
+    location.href = location.origin + location.pathname;
   }
 
-  supabase.auth.onAuthStateChange(async (event, session) => {
+  // Listen for auth changes (fires after Google redirect returns)
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (session?.user) {
+      const email = session.user.email;
+      if (!ALLOWED_EMAILS.includes(email)) {
+        document.getElementById('login-error').style.display = 'block';
+        supabase.auth.signOut();
+        return;
+      }
+      currentUser = session.user;
+      currentName = NAMES[email];
+      initApp();
+    }
+  });
+
+  // Also check on page load (handles the post-redirect case)
+  (async () => {
+    const { data: { session } } = await supabase.auth.getSession();
     if (session?.user) {
       const email = session.user.email;
       if (!ALLOWED_EMAILS.includes(email)) {
@@ -375,12 +307,10 @@
       currentUser = session.user;
       currentName = NAMES[email];
       initApp();
-    } else {
-      document.getElementById('login-screen').style.display = 'flex';
-      document.getElementById('app-screen').style.display = 'none';
     }
-  });
+  })();
 
+  // ── APP INIT ──────────────────────────────────────
   function initApp() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app-screen').style.display = 'block';
@@ -399,21 +329,18 @@
     loadNotes();
   }
 
-  function mySlug() {
-    return currentUser.email === 'ambikabanerjee17@gmail.com' ? 'ambika' : 'anuja';
-  }
+  function mySlug() { return currentUser.email === 'ambikabanerjee17@gmail.com' ? 'ambika' : 'anuja'; }
 
   function lockOtherMoodCard() {
-    const me = mySlug();
-    const other = me === 'ambika' ? 'anuja' : 'ambika';
+    const other = mySlug() === 'ambika' ? 'anuja' : 'ambika';
     document.querySelectorAll('#moods-' + other + ' button').forEach(b => b.disabled = true);
-    document.getElementById('note-' + other).disabled = true;
-    document.getElementById('note-' + other).placeholder = 'waiting for ' + (other === 'ambika' ? 'Ambika' : 'Anuja') + '...';
+    const inp = document.getElementById('note-' + other);
+    inp.disabled = true;
+    inp.placeholder = 'waiting for ' + (other === 'ambika' ? 'Ambika' : 'Anuja') + '...';
   }
 
   function updateNoteToLabel() {
-    const partner = NAMES[PARTNER_EMAIL[currentUser.email]];
-    document.getElementById('note-to-label').textContent = 'To: ' + partner;
+    document.getElementById('note-to-label').textContent = 'To: ' + NAMES[PARTNER_EMAIL[currentUser.email]];
   }
 
   function showTab(id, btn) {
@@ -423,31 +350,20 @@
     btn.classList.add('active');
   }
 
-  // MOOD
+  // ── MOOD ──────────────────────────────────────────
   function selectMood(person, emoji) {
     if (person !== mySlug()) return;
     selectedMood[person] = emoji;
-    document.querySelectorAll('#moods-' + person + ' button').forEach(b => {
-      b.classList.toggle('selected', b.textContent === emoji);
-    });
+    document.querySelectorAll('#moods-' + person + ' button').forEach(b => b.classList.toggle('selected', b.textContent === emoji));
   }
 
   async function saveMood() {
     const me = mySlug();
     const btn = document.getElementById('mood-save-btn');
-    btn.disabled = true;
-    btn.textContent = 'Saving...';
-
+    btn.disabled = true; btn.textContent = 'Saving...';
     const today = new Date().toISOString().split('T')[0];
-    const { error } = await supabase.from('moods').upsert({
-      date: today,
-      person: me,
-      emoji: selectedMood[me] || '–',
-      note: document.getElementById('note-' + me).value
-    }, { onConflict: 'date,person' });
-
-    btn.disabled = false;
-    btn.textContent = 'Save today\'s mood';
+    const { error } = await supabase.from('moods').upsert({ date: today, person: me, emoji: selectedMood[me] || '–', note: document.getElementById('note-' + me).value }, { onConflict: 'date,person' });
+    btn.disabled = false; btn.textContent = "Save today's mood";
     if (error) { showToast('Could not save. Try again.'); return; }
     document.getElementById('note-' + me).value = '';
     selectedMood[me] = null;
@@ -459,49 +375,31 @@
   async function loadMoods() {
     const { data } = await supabase.from('moods').select('*').order('date', { ascending: false }).limit(28);
     if (!data) return;
-
-    // Show today's saved moods in the cards
     const today = new Date().toISOString().split('T')[0];
     ['ambika','anuja'].forEach(p => {
       const entry = data.find(d => d.date === today && d.person === p);
       if (entry && p !== mySlug()) {
-        const btns = document.querySelectorAll('#moods-' + p + ' button');
-        btns.forEach(b => b.classList.toggle('selected', b.textContent === entry.emoji));
+        document.querySelectorAll('#moods-' + p + ' button').forEach(b => b.classList.toggle('selected', b.textContent === entry.emoji));
         document.getElementById('note-' + p).value = entry.note || '';
       }
     });
-
-    // History: group by date
     const byDate = {};
-    data.forEach(d => {
-      if (!byDate[d.date]) byDate[d.date] = {};
-      byDate[d.date][d.person] = d;
-    });
+    data.forEach(d => { if (!byDate[d.date]) byDate[d.date] = {}; byDate[d.date][d.person] = d; });
     const el = document.getElementById('mood-history');
     const dates = Object.keys(byDate).sort().reverse().slice(0, 10);
     if (!dates.length) { el.innerHTML = ''; return; }
     el.innerHTML = '<h3>Recent days</h3>' + dates.map(date => {
-      const a = byDate[date].ambika;
-      const n = byDate[date].anuja;
-      const notes = [a?.note, n?.note].filter(Boolean).join(' · ');
-      return `<div class="history-row">
-        <span class="h-day">${fmt(new Date(date + 'T12:00:00'))}</span>
-        <span class="h-moods">${a?.emoji || '–'}${n?.emoji || '–'}</span>
-        <span class="h-note">${notes}</span>
-      </div>`;
+      const a = byDate[date].ambika, n = byDate[date].anuja;
+      return `<div class="history-row"><span class="h-day">${fmt(new Date(date+'T12:00:00'))}</span><span class="h-moods">${a?.emoji||'–'}${n?.emoji||'–'}</span><span class="h-note">${[a?.note,n?.note].filter(Boolean).join(' · ')}</span></div>`;
     }).join('');
   }
 
-  // JOURNAL
+  // ── JOURNAL ───────────────────────────────────────
   async function saveJournal() {
     const t = document.getElementById('journal-text').value.trim();
     const i = document.getElementById('improve-text').value.trim();
     if (!t && !i) return;
-    const { error } = await supabase.from('journal').insert({
-      author: mySlug(),
-      thoughts: t,
-      improve: i
-    });
+    const { error } = await supabase.from('journal').insert({ author: mySlug(), thoughts: t, improve: i });
     if (error) { showToast('Could not save. Try again.'); return; }
     document.getElementById('journal-text').value = '';
     document.getElementById('improve-text').value = '';
@@ -515,20 +413,16 @@
     const el = document.getElementById('journal-past');
     if (!data.length) { el.innerHTML = ''; return; }
     el.innerHTML = '<h3>Past entries</h3>' + data.map(e =>
-      `<div class="past-entry">
-        <div class="e-date">${fmt(new Date(e.created_at))} · ${e.author === 'ambika' ? 'Ambika' : 'Anuja'}</div>
-        ${e.thoughts ? `<div class="e-text">${e.thoughts}</div>` : ''}
-        ${e.improve ? `<div class="e-improve">To improve: ${e.improve}</div>` : ''}
-      </div>`
+      `<div class="past-entry"><div class="e-date">${fmt(new Date(e.created_at))} · ${e.author === 'ambika' ? 'Ambika' : 'Anuja'}</div>${e.thoughts ? `<div class="e-text">${e.thoughts}</div>` : ''}${e.improve ? `<div class="e-improve">To improve: ${e.improve}</div>` : ''}</div>`
     ).join('');
   }
 
-  // MILESTONES
+  // ── MILESTONES ────────────────────────────────────
   async function addMilestone() {
     const val = document.getElementById('milestone-input').value.trim();
     if (!val) return;
     const { error } = await supabase.from('milestones').insert({ text: val, done: false, added_by: mySlug() });
-    if (error) { showToast('Could not add. Try again.'); return; }
+    if (error) { showToast('Could not add.'); return; }
     document.getElementById('milestone-input').value = '';
     loadMilestones();
   }
@@ -544,50 +438,22 @@
     const el = document.getElementById('milestones-list');
     if (!data.length) { el.innerHTML = '<div class="empty-state">No goals yet — add your first one below</div>'; return; }
     el.innerHTML = data.map(m =>
-      `<div class="milestone-item ${m.done ? 'done' : ''}" onclick="toggleMilestone(${m.id}, ${m.done})">
-        <div class="m-check">${m.done ? '✓' : ''}</div>
-        <div class="m-text">${m.text}</div>
-      </div>`
+      `<div class="milestone-item ${m.done?'done':''}" onclick="toggleMilestone(${m.id},${m.done})"><div class="m-check">${m.done?'✓':''}</div><div class="m-text">${m.text}</div></div>`
     ).join('');
   }
 
-  // LOVE NOTES
+  // ── LOVE NOTES ────────────────────────────────────
   async function sendNote() {
     const text = document.getElementById('note-text').value.trim();
     if (!text) return;
     const btn = document.getElementById('send-note-btn');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
+    btn.disabled = true; btn.textContent = 'Sending...';
     const toEmail = PARTNER_EMAIL[currentUser.email];
-    const fromName = currentName;
-
-    const { error } = await supabase.from('notes').insert({
-      from_person: mySlug(),
-      from_name: fromName,
-      to_email: toEmail,
-      message: text
-    });
-
-    if (error) {
-      showToast('Could not send. Try again.');
-      btn.disabled = false;
-      btn.textContent = 'Send note ✉';
-      return;
-    }
-
-    // Trigger email via Supabase Edge Function
-    try {
-      await supabase.functions.invoke('send-note-email', {
-        body: { fromName, toEmail, message: text }
-      });
-    } catch(e) {
-      // email failure is non-blocking
-    }
-
+    const { error } = await supabase.from('notes').insert({ from_person: mySlug(), from_name: currentName, to_email: toEmail, message: text });
+    if (error) { showToast('Could not send. Try again.'); btn.disabled = false; btn.textContent = 'Send note ✉'; return; }
+    try { await supabase.functions.invoke('send-note-email', { body: { fromName: currentName, toEmail, message: text } }); } catch(e) {}
     document.getElementById('note-text').value = '';
-    btn.disabled = false;
-    btn.textContent = 'Send note ✉';
+    btn.disabled = false; btn.textContent = 'Send note ✉';
     showToast('Note sent to ' + NAMES[toEmail] + '!');
     loadNotes();
   }
@@ -598,11 +464,7 @@
     const el = document.getElementById('notes-list');
     if (!data.length) { el.innerHTML = '<div class="empty-state">No notes yet — send the first one</div>'; return; }
     el.innerHTML = data.map(n =>
-      `<div class="note-card">
-        <div class="note-from">from ${n.from_name}</div>
-        <div class="note-body">${n.message}</div>
-        <div class="note-time">${fmt(new Date(n.created_at))}</div>
-      </div>`
+      `<div class="note-card"><div class="note-from">from ${n.from_name}</div><div class="note-body">${n.message}</div><div class="note-time">${fmt(new Date(n.created_at))}</div></div>`
     ).join('');
   }
 </script>
