@@ -203,12 +203,24 @@
   async function saveMood(){
     const me=mySlug();const btn=$('mood-save-btn');btn.disabled=true;btn.textContent='Saving...';
     const today=new Date().toISOString().split('T')[0];
-    const{error}=await sb.from('moods').upsert({date:today,person:me,emoji:MOOD_PICK[me]||'–',note:$('note-'+me).value},{onConflict:'date,person'});
+    const emoji=MOOD_PICK[me]||'–';
+    const note=$('note-'+me).value;
+    const{error}=await sb.from('moods').upsert({date:today,person:me,emoji,note},{onConflict:'date,person'});
     btn.disabled=false;btn.textContent="Save today's mood";
     if(error){toast('Could not save.');return;}
     $('note-'+me).value='';MOOD_PICK[me]=null;
     document.querySelectorAll('#moods-'+me+' .emoji-btn').forEach(b=>b.classList.remove('selected'));
-    toast('Mood saved!');loadMoods();
+    toast('Mood saved! Notifying '+NAMES[PARTNER[ME.email]]+'... 💬');
+    // Email both people
+    const partnerEmail=PARTNER[ME.email];
+    const dateStr=fmtDate(Date.now());
+    try{await sb.functions.invoke('notify',{body:{type:'mood',data:{
+      saverName:MY_NAME,saverEmoji:emoji,saverNote:note,
+      saverEmail:ME.email,
+      partnerName:NAMES[partnerEmail],partnerEmail,
+      date:dateStr
+    }}});}catch(e){}
+    loadMoods();
   }
 
   async function loadMoods(){
@@ -233,7 +245,14 @@
     if(!t&&!i)return;
     const{error}=await sb.from('journal').insert({author:mySlug(),thoughts:t,improve:i});
     if(error){toast('Could not save.');return;}
-    $('journal-text').value='';$('improve-text').value='';toast('Entry saved!');loadJournal();
+    $('journal-text').value='';$('improve-text').value='';
+    toast('Entry saved! Sending to your email...');
+    try{await sb.functions.invoke('notify',{body:{type:'journal',data:{
+      authorName:MY_NAME,authorEmail:ME.email,
+      thoughts:t,improve:i,
+      date:fmtDate(Date.now())
+    }}});}catch(e){}
+    loadJournal();
   }
 
   async function loadJournal(){
@@ -271,7 +290,11 @@
     const toEmail=PARTNER[ME.email];
     const{error}=await sb.from('notes').insert({from_person:mySlug(),from_name:MY_NAME,to_email:toEmail,message:text});
     if(error){toast('Could not send.');btn.disabled=false;btn.textContent='Send note ✉';return;}
-    try{await sb.functions.invoke('send-note-email',{body:{fromName:MY_NAME,toEmail,message:text}});}catch(e){}
+    // Email the recipient
+    const toName=NAMES[toEmail];
+    try{await sb.functions.invoke('notify',{body:{type:'note',data:{
+      fromName:MY_NAME,toName,toEmail,message:text
+    }}});}catch(e){}
     $('note-text').value='';btn.disabled=false;btn.textContent='Send note ✉';
     toast('Note sent to '+NAMES[toEmail]+'! 💌');loadNotes();
   }
